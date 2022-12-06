@@ -1,5 +1,7 @@
 # Clean Architecture
-- # Folder style 1
+<img src="./clean-architecture.webp"/>
+
+- # Folder style 1 😌
 .
 ├── adapters
 ├── domain
@@ -29,4 +31,32 @@
 │   └── toastUtil.ts
 ├── App.tsx
 
-- # Folder style 2
+- # Folder style 2 ❤️
+
+.
+├── modules
+│   ├── transaction
+│   │   ├── apdapter
+│   │   │   ├── createTransactionAdapter.ts
+│   │   │   └── deleteTransactionApdapter.ts
+│   │   ├── presentation
+│   │   │   ├── TransactionCreate
+│   │   │   │   ├── style.css
+│   │   │   │   └── TransactionCreate.tsx
+│   │   │   └── TransactionList
+│   │   │       ├── index.tsx
+│   │   │       ├── style.css
+│   │   │       ├── TransactionItem.tsx
+│   │   │       └── TransactionList.tsx
+│   │   ├── use-case
+│   │   │   └── spendMoreThanIncomeUseCase.ts
+│   │   ├── config.ts
+│   │   ├── transaction.entity.ts
+│   │   ├── transaction.model.ts
+│   │   └── transaction.repository.ts
+│   └── user
+├── utils
+│   ├── dateUtils.ts
+│   ├── exceptionUtil.ts
+│   └── toastUtil.ts
+├── App.tsx

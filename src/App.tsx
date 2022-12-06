@@ -1,8 +1,8 @@
-import { ToastContainer, toast } from 'react-toastify';
-import TransactionList from './features/transaction/presentations/TransactionList/TransactionList';
+ 
+import { TransactionList } from 'modules/transaction/presentation/TransactionList';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
- 
   return (
     <div> 
       <ToastContainer />

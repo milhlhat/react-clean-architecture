@@ -1,8 +1,8 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import { createTransactionAdapter } from 'modules/transaction/apdapter/createTransactionAdapter';
+import { TransactionType } from 'modules/transaction/transaction.model';
 import React from 'react';
-import { TransactionType } from '../../aggregates/domain-models/transaction.model';
-import { getCurrentDayString } from '../../helper';
-import { createTransactionUseCase } from '../../use-cases/createTransactionUseCase';
+import { getCurrentDayString } from 'utils/dateUtils';
 import "./style.css";
 
 type Props = {
@@ -14,7 +14,7 @@ function TransactionCreate(props: Props) {
   const [parent,] = useAutoAnimate(/* optional config */)
 
   const createTransaction = (event: React.ChangeEvent<HTMLFormElement>) => {
-    createTransactionUseCase(event);
+    createTransactionAdapter(event);
     loadTransactions(); // update state list
   };
 

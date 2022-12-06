@@ -1,6 +1,6 @@
 import autoAnimate from '@formkit/auto-animate';
-import transactionService from 'domain/transaction/transaction.entity';
-import { Transaction } from 'domain/transaction/transaction.model';
+import transactionService from 'modules/transaction/transaction.entity';
+import { Transaction } from 'modules/transaction/transaction.model';
 import { useEffect, useRef, useState } from 'react';
 import TransactionCreate from '../TransactionCreate/TransactionCreate';
 import "./style.css";
@@ -26,12 +26,12 @@ const TransactionList = () => {
     parent.current && autoAnimate(parent.current)
   }, [parent])
   return (
-    <div  className='transaction-container'>
-      <TransactionCreate loadTransactions={loadTransactions}/>
+    <div className='transaction-container'>
+      <TransactionCreate loadTransactions={loadTransactions} />
       <div ref={parent} className="transaction-list">
-      {allTransactions.map((transaction) => (
-        <TransactionItem key={transaction.id} transaction={transaction} loadTransactions={loadTransactions}/>
-      ))}
+        {allTransactions.map((transaction) => (
+          <TransactionItem key={transaction.id} transaction={transaction} loadTransactions={loadTransactions} />
+        ))}
       </div>
     </div>
   )

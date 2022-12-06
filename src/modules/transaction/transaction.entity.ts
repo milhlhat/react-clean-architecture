@@ -1,5 +1,5 @@
 import { abortError } from "utils/exceptionUtil";
-import { TRANSACTION_KEY } from "../../helper";
+import { TRANSACTION_KEY } from "./config";
 import { Transaction } from "./transaction.model";
 import { TransactionRepository } from "./transaction.repository";
 

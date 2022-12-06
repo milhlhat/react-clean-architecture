@@ -1,5 +1,5 @@
-import { Transaction, TransactionType } from "domain/transaction/transaction.model";
-import { deleteTransactionUseCase } from "use-cases/transaction/deleteTransactionUseCase";
+import { deleteTransactionAdapter } from "modules/transaction/apdapter/deleteTransactionApdapter";
+import { Transaction, TransactionType } from "modules/transaction/transaction.model";
 
 type Props = {
     transaction: Transaction;
@@ -9,7 +9,7 @@ type Props = {
 const TransactionItem = (props: Props) => {
     const { transaction: { amount, date, description, id, type }, loadTransactions } = props
     const deleteTransaction = (id: string) => {
-        deleteTransactionUseCase(id);
+        deleteTransactionAdapter(id);
         loadTransactions(); // update STATE list
     }
     return (
