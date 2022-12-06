@@ -2,6 +2,7 @@
 <img src="./clean-architecture.webp"/>
 
 - # Folder style 1 😌
+<pre>
 .
 ├── adapters
 ├── domain
@@ -30,9 +31,9 @@
 │   ├── exceptionUtil.ts
 │   └── toastUtil.ts
 ├── App.tsx
-
+</pre>
 - # Folder style 2 ❤️
-
+<pre>
 .
 ├── modules
 │   ├── transaction
@@ -60,3 +61,4 @@
 │   ├── exceptionUtil.ts
 │   └── toastUtil.ts
 ├── App.tsx
+</pre>
