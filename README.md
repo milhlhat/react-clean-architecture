@@ -1,7 +1,44 @@
 # Clean Architecture
 <img src="./clean-architecture.webp"/>
 
-- # Folder style 1 😌
+- ## Folder style ❤️
+<pre>
+.
+├── modules
+│   ├── transaction
+│   │   ├── apdapter
+│   │   │   ├── createTransactionAdapter.ts
+│   │   │   └── deleteTransactionApdapter.ts
+│   │   ├── presentation
+│   │   │   ├── TransactionCreate
+│   │   │   │   ├── style.css
+│   │   │   │   └── TransactionCreate.tsx
+│   │   │   └── TransactionList
+│   │   │       ├── index.tsx
+│   │   │       ├── style.css
+│   │   │       ├── TransactionItem.tsx
+│   │   │       └── TransactionList.tsx
+│   │   ├── use-case
+│   │   │   └── spendMoreThanIncomeUseCase.ts
+│   │   ├── config.ts
+│   │   ├── transaction.entity.ts
+│   │   ├── transaction.model.ts
+│   │   └── transaction.repository.ts
+│   └── user
+├── utils
+│   ├── dateUtils.ts
+│   ├── exceptionUtil.ts
+│   └── toastUtil.ts
+├── App.tsx
+</pre>
+
+## Usage 💪
+
+<img src="./Clean-architecture-usage.png" style="max-width: none;"/>
+
+
+--- 
+- ## Other Folder style 😌
 <pre>
 .
 ├── adapters
@@ -28,36 +65,6 @@
 │   │   └── listTransactionUseCase.ts
 │   └── user
 ├── utils
-│   ├── exceptionUtil.ts
-│   └── toastUtil.ts
-├── App.tsx
-</pre>
-- # Folder style 2 ❤️
-<pre>
-.
-├── modules
-│   ├── transaction
-│   │   ├── apdapter
-│   │   │   ├── createTransactionAdapter.ts
-│   │   │   └── deleteTransactionApdapter.ts
-│   │   ├── presentation
-│   │   │   ├── TransactionCreate
-│   │   │   │   ├── style.css
-│   │   │   │   └── TransactionCreate.tsx
-│   │   │   └── TransactionList
-│   │   │       ├── index.tsx
-│   │   │       ├── style.css
-│   │   │       ├── TransactionItem.tsx
-│   │   │       └── TransactionList.tsx
-│   │   ├── use-case
-│   │   │   └── spendMoreThanIncomeUseCase.ts
-│   │   ├── config.ts
-│   │   ├── transaction.entity.ts
-│   │   ├── transaction.model.ts
-│   │   └── transaction.repository.ts
-│   └── user
-├── utils
-│   ├── dateUtils.ts
 │   ├── exceptionUtil.ts
 │   └── toastUtil.ts
 ├── App.tsx
