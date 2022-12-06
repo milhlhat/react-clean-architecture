@@ -1,0 +1,35 @@
+.create-btn{
+    margin: 20px auto;
+    white-space: nowrap;
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.create-form{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0px auto 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+
+}
+
+.create-form input, .create-form select{
+    width: 100%;
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.done {
+    width: 100%;
+}
