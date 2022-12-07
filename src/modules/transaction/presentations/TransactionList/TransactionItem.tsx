@@ -1,4 +1,4 @@
-import { deleteTransactionAdapter } from "modules/transaction/apdapter/deleteTransactionApdapter";
+import { deleteTransactionAdapter } from "modules/transaction/adapters/deleteTransactionAdapter";
 import { Transaction, TransactionType } from "modules/transaction/transaction.model";
 
 type Props = {

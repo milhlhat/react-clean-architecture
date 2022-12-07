@@ -34,7 +34,7 @@
 
 ## Usage 💪
 
-<img src="./Clean-architecture-usage.png"/>
+<img src="./Clean-architecture-usage.png" style="max-width: 400px;"/>
 
 
 --- 

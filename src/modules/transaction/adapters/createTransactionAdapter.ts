@@ -3,7 +3,7 @@ import { toastSuccess } from 'utils/toastUtil';
 import { v4 as uuid } from 'uuid';
 import transactionService from "../transaction.entity";
 import { Transaction, TransactionType } from "../transaction.model";
-import { isSpendMoreThanIncome, spendMoreThanIncomeUseCase } from "../use-case/spendMoreThanIncomeUseCase";
+import { isSpendMoreThanIncome, spendMoreThanIncomeUseCase } from "../use-cases/spendMoreThanIncomeUseCase";
 
 const convertFormToTransaction = (event: React.ChangeEvent<HTMLFormElement>): Transaction => {
     event.preventDefault();

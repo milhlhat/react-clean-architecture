@@ -1,8 +1,8 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react';
-import { createTransactionAdapter } from 'modules/transaction/apdapter/createTransactionAdapter';
+import { createTransactionAdapter } from 'modules/transaction/adapters/createTransactionAdapter';
 import { TransactionType } from 'modules/transaction/transaction.model';
 import React from 'react';
-import { getCurrentDayString } from 'utils/dateUtils';
+import { getCurrentDayString } from 'utils/dateUtil';
 import "./style.css";
 
 type Props = {
