@@ -1,2 +1,2 @@
-export * from "./createTransactionAdapter";
-export * from "./deleteTransactionAdapter";
+export * from "./useCreateTransactionAdapter";
+export * from "./useDeleteTransactionAdapter";

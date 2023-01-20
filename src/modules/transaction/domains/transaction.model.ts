@@ -1,6 +1,6 @@
 import { abortError } from "utils/exceptionUtil";
-import { TRANSACTION_KEY } from "./config";
-import { Transaction } from "./transaction.model";
+import { TRANSACTION_KEY } from "../helper";
+import { Transaction } from "./transaction.entity";
 import { TransactionRepository } from "./transaction.repository";
 
 class TransactionService implements TransactionRepository {
@@ -10,7 +10,7 @@ class TransactionService implements TransactionRepository {
         return allTransaction ? JSON.parse(allTransaction) : [];
     }
 
-    getTransactionById(id: string): Transaction {
+    getTransactionById(id: Transaction["id"]): Transaction {
         const allTransactions = this.getTransactions();
         if (!allTransactions || (Array.isArray(allTransactions) && allTransactions.length === 0)) {
             throw new Error("No transactions found");
@@ -68,7 +68,7 @@ class TransactionService implements TransactionRepository {
         return transaction;
     }
 
-    deleteTransaction(id: string): void {
+    deleteTransaction(id: Transaction["id"]): void {
         const allTransactions = this.getTransactions();
         const index = allTransactions.findIndex((t: Transaction) => t.id === id);
         if (index === -1) {

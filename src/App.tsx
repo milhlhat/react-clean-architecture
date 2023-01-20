@@ -1,5 +1,5 @@
  
-import { TransactionList } from 'modules/transaction/presentation/TransactionList';
+import { TransactionList } from 'modules/transaction/presentations/TransactionList';
 import { ToastContainer } from 'react-toastify';
 
 function App() {
