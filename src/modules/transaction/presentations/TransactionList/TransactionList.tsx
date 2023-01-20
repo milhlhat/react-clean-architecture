@@ -1,30 +1,20 @@
 import autoAnimate from '@formkit/auto-animate';
-import transactionService from 'modules/transaction/transaction.entity';
-import { Transaction } from 'modules/transaction/transaction.model';
-import { useEffect, useRef, useState } from 'react';
+import useGetTransactionAdapter from 'modules/transaction/adapters/useGetAllTransactionAdapter';
+import transactionService from 'modules/transaction/domains/transaction.model';
+import { useEffect, useRef } from 'react';
 import TransactionCreate from '../TransactionCreate/TransactionCreate';
 import "./style.css";
 import TransactionItem from './TransactionItem';
 
 
 const TransactionList = () => {
-  const [allTransactions, setAllTransactions] = useState<Transaction[]>([]);
   const parent = useRef(null)
-  const loadTransactions = () => {
-    const transactions = transactionService.getTransactions().reverse();
-    if (transactions) {
-      setAllTransactions(transactions);
-    } else {
-      setAllTransactions([]);
-    }
-  }
+  const { allTransactions, loadTransactions } = useGetTransactionAdapter(transactionService);
 
-  useEffect(() => {
-    loadTransactions();
-  }, []);
   useEffect(() => {
     parent.current && autoAnimate(parent.current)
   }, [parent])
+
   return (
     <div className='transaction-container'>
       <TransactionCreate loadTransactions={loadTransactions} />

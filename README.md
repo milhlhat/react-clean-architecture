@@ -1,71 +1,118 @@
 # Clean Architecture
-<img src="./clean-architecture.webp"/>
+<img src="./clean-architecture.png" style="max-width: 800px;"/>
 
-- ## Folder style ❤️
+## Folder style ❤️
 <pre>
 .
 ├── modules
 │   ├── transaction
-│   │   ├── apdapter
-│   │   │   ├── createTransactionAdapter.ts
-│   │   │   └── deleteTransactionApdapter.ts
-│   │   ├── presentation
+│   │   ├── adapters
+│   │   │   ├── index.ts
+│   │   │   ├── useCreateTransactionAdapter.ts
+│   │   │   ├── useDeleteTransactionAdapter.ts
+│   │   │   └── useGetAllTransactionAdapter.ts
+│   │   ├── domains
+│   │   │   ├── transaction.entity.ts
+│   │   │   ├── transaction.model.ts
+│   │   │   └── transaction.repository.ts
+│   │   ├── presentations
 │   │   │   ├── TransactionCreate
+│   │   │   │   ├── index.tsx
 │   │   │   │   ├── style.css
 │   │   │   │   └── TransactionCreate.tsx
-│   │   │   └── TransactionList
-│   │   │       ├── index.tsx
-│   │   │       ├── style.css
-│   │   │       ├── TransactionItem.tsx
-│   │   │       └── TransactionList.tsx
-│   │   ├── use-case
-│   │   │   └── spendMoreThanIncomeUseCase.ts
-│   │   ├── config.ts
-│   │   ├── transaction.entity.ts
-│   │   ├── transaction.model.ts
-│   │   └── transaction.repository.ts
+│   │   │   ├── TransactionList
+│   │   │   │   ├── index.tsx
+│   │   │   │   ├── style.css
+│   │   │   │   ├── TransactionItem.tsx
+│   │   │   │   └── TransactionList.tsx
+│   │   │   └── .DS_Store
+│   │   ├── use-cases
+│   │   │   ├── createTransactionUseCase.ts
+│   │   │   ├── deleteTransactionUseCase.ts
+│   │   │   └── index.ts
+│   │   └── helper.ts
 │   └── user
+│      
 ├── utils
-│   ├── dateUtils.ts
+│   ├── dateUtil.ts
 │   ├── exceptionUtil.ts
 │   └── toastUtil.ts
+├── App.test.tsx
 ├── App.tsx
+├── index.css
+└── index.tsx
+
 </pre>
 
-## Usage 💪
+## Flow 💪
+<img src="./CA-flow.drawio.png" style="max-width: 600px;width:100%"/>
 
-<img src="./Clean-architecture-usage.png" style="max-width: 400px;"/>
+## Usage 🐾
 
+1. Presentation
+    
+        export default Feature(){
+            const {state, handleSomething} = useAdapter()
 
---- 
-- ## Other Folder style 😌
-<pre>
-.
-├── adapters
-├── domain
-│   ├── transaction
-│   │   ├── transaction.entity.ts
-│   │   ├── transaction.model.ts
-│   │   └── transaction.repository.ts
-│   └── user
-├── presentations
-│   ├── transaction
-│   │   ├── TransactionCreate
-│   │   │   ├── style.css
-│   │   │   └── TransactionCreate.tsx
-│   │   └── TransactionList
-│   │       ├── style.css
-│   │       ├── TransactionItem.tsx
-│   │       └── TransactionList.tsx
-│   └── user
-├── use-cases
-│   ├── transaction
-│   │   ├── createTransactionUseCase.ts
-│   │   ├── deleteTransactionUseCase.ts
-│   │   └── listTransactionUseCase.ts
-│   └── user
-├── utils
-│   ├── exceptionUtil.ts
-│   └── toastUtil.ts
-├── App.tsx
-</pre>
+            return (
+                <button onClick={handleSomething}>
+                {state}
+                </button>
+            )
+        }
+2. Adapter
+
+        import someUseCase from "../use-cases"
+        
+        export default useAdapter(service: ServiceRepository){
+            const [state, setState] = useState();
+
+            const handleSomething = ()=> {
+               const result = someUseCase.execute();
+               setState(result);
+            }
+            return {state, handleSomething}
+        }
+
+3. Use case
+
+        import service from "../domain/model"
+
+        export class SomeUseCase {
+            execute (){
+                handleSomeUserStories();
+                service.doSomething();
+            }
+        }
+        
+
+4. Domain
+
+    4.1 Entity
+
+        export interface Something {
+            id: number;
+            ...
+        }
+
+    4.2 Repository
+        
+        export interface SomethingRepository {
+            getSomething(): Something;
+            setSomething(st: Something): Something;
+            ...
+        }
+
+    4.3 Model
+
+        export class SomethingService implements SomethingRepository {
+            getSomething(){
+                callApi();
+            }
+
+            setSomething(st: Something){
+                validate(st)
+                callApi(st)
+            }
+        }
+        

@@ -1,5 +1,7 @@
-import { deleteTransactionAdapter } from "modules/transaction/adapters/deleteTransactionAdapter";
-import { Transaction, TransactionType } from "modules/transaction/transaction.model";
+
+import { useDeleteTransactionAdapter } from "modules/transaction/adapters";
+import { Transaction, TransactionType } from "modules/transaction/domains/transaction.entity";
+import transactionService from "modules/transaction/domains/transaction.model";
 
 type Props = {
     transaction: Transaction;
@@ -8,10 +10,14 @@ type Props = {
 
 const TransactionItem = (props: Props) => {
     const { transaction: { amount, date, description, id, type }, loadTransactions } = props
+
+    const { deleteTransactionAdapter } = useDeleteTransactionAdapter(transactionService);
+
     const deleteTransaction = (id: string) => {
         deleteTransactionAdapter(id);
         loadTransactions(); // update STATE list
     }
+
     return (
         <div className="transaction-item">
             <div>
